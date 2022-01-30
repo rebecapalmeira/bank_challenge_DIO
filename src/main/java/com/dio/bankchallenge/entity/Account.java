@@ -15,9 +15,10 @@ public class Account implements IAccount{
     protected AccountType type;
     protected Client clientName;
 
-    public Account () {
+    public Account (Client clientName) {
         this.bankBranch = DEFAULT_BANK_BRANCH;
         this.account = SEQUENTIAL++;
+        this.clientName = clientName;
     }
 
 
@@ -43,6 +44,7 @@ public class Account implements IAccount{
         System.out.println("===== Saldo =====\nAgência: " + this.bankBranch +
                 "\nTipo de Conta: " + this.type +
                 "\nConta: " + this.account +
+                "\nTitular: " + this.getClientName() +
                 "\nSaldo: R$" + this.getBalance());
     }
 
@@ -51,9 +53,11 @@ public class Account implements IAccount{
         System.out.println("===== Comprovante de Transferência =====\nAgência de Origem: " + this.bankBranch +
                 "\nTipo de Conta: " + this.type +
                 "\nConta: " + this.account +
+                "\nTitular: " + this.getClientName() +
                 "\n====================================\nAgência de Destino: " + accountToReceive.getBankBranch() +
                 "\nTipo de Conta: " + accountToReceive.getType() +
                 "\nConta de Destino: " + accountToReceive.getAccount() +
+                "\nTitular: " + accountToReceive.getClientName() +
                 "\n====================================\nValor transferido: R$" + amount);
     }
 
