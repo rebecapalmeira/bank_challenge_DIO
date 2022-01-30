@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class Bank {
 
+    public String identifierCode = "001";
     public String name;
 
 }

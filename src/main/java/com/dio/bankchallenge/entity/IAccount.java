@@ -8,4 +8,8 @@ public interface IAccount {
 
     void transfer(double amount, Account accountToReceive);
 
+    void printBalance();
+
+    void printTransferData(double amount, Account accountToReceive);
+
 }
