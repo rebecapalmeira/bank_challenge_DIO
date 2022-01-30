@@ -1,7 +1,12 @@
 package com.dio.bankchallenge.entity;
 
-public class SavingsAccount extends Account {
+import com.dio.bankchallenge.enums.AccountType;
 
+    public class SavingsAccount extends Account {
 
+    public SavingsAccount(AccountType type) {
+        super();
+        this.type = type;
+    }
 
 }
