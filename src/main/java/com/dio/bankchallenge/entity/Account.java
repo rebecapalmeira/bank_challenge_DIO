@@ -13,12 +13,12 @@ public class Account implements IAccount{
     protected int account;
     protected double balance;
     protected AccountType type;
-    protected Client clientName;
+    protected Client client;
 
-    public Account (Client clientName) {
+    public Account (Client client) {
         this.bankBranch = DEFAULT_BANK_BRANCH;
         this.account = SEQUENTIAL++;
-        this.clientName = clientName;
+        this.client = client;
     }
 
 
@@ -41,24 +41,28 @@ public class Account implements IAccount{
 
     @Override
     public void printBalance() {
-        System.out.println("===== Saldo =====\nAgência: " + this.bankBranch +
-                "\nTipo de Conta: " + this.type +
+        System.out.println("===== Saldo =====" +
+                "\nAgência: " + this.bankBranch +
                 "\nConta: " + this.account +
-                "\nTitular: " + this.getClientName() +
+                "\nTipo de Conta: " + this.type +
+                "\nTitular: " + this.getClient().getName() +
                 "\nSaldo: R$" + this.getBalance());
     }
 
     @Override
     public void printTransferData(double amount, Account accountToReceive) {
-        System.out.println("===== Comprovante de Transferência =====\nAgência de Origem: " + this.bankBranch +
-                "\nTipo de Conta: " + this.type +
+        System.out.println("===== Comprovante de Transferência =====" +
+                "\nAgência de Origem: " + this.bankBranch +
                 "\nConta: " + this.account +
-                "\nTitular: " + this.getClientName() +
-                "\n====================================\nAgência de Destino: " + accountToReceive.getBankBranch() +
+                "\nTipo de Conta: " + this.type +
+                "\nTitular: " + this.getClient().getName() +
+                "\n====================================" +
+                "\nAgência de Destino: " + accountToReceive.getBankBranch() +
                 "\nTipo de Conta: " + accountToReceive.getType() +
                 "\nConta de Destino: " + accountToReceive.getAccount() +
-                "\nTitular: " + accountToReceive.getClientName() +
-                "\n====================================\nValor transferido: R$" + amount);
+                "\nTitular: " + accountToReceive.getClient().getName() +
+                "\n====================================" +
+                "\nValor transferido: R$" + amount);
     }
 
     @Override
